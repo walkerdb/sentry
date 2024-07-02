@@ -10,9 +10,11 @@ module.exports = {
 
   parserOptions: detectDeprecations
     ? {
-        project: './tsconfig.json',
+        project: './tsconfig.eslint.json',
       }
-    : {},
+    : {
+      project: './tsconfig.eslint.json'
+    },
 
   globals: {
     require: false,
@@ -22,6 +24,8 @@ module.exports = {
     jest: true,
   },
   rules: {
+    '@typescript-eslint/consistent-type-exports': ['error'],
+    '@typescript-eslint/await-thenable': ['error'],
     'react-hooks/exhaustive-deps': [
       'error',
       {additionalHooks: '(useEffectAfterFirstRender|useMemoWithPrevious)'},
